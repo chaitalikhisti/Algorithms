@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class bubbleSort
 {
-    public static int[] bubbleSort(int[] arr)
+    private static void bubbleSorting(int[] arr)
     {
         int n = arr.length;
         if (n < 2)
@@ -25,10 +25,9 @@ public class bubbleSort
                 }
             }
         }
-        return arr;
     }
 
-    public static void swap(int[] givenArray, int bigNo, int smallNo)
+    private static void swap(int[] givenArray, int bigNo, int smallNo)
     {
         int temp = givenArray[smallNo];
         givenArray[smallNo] = givenArray[bigNo];
@@ -44,7 +43,8 @@ public class bubbleSort
         {
             arrayToBeSorted[i] = sc.nextInt();
         }
-        bubbleSort(arrayToBeSorted);
+        System.out.println("Unsorted Array: " +Arrays.toString(arrayToBeSorted));
+        bubbleSorting(arrayToBeSorted);
         System.out.println(Arrays.toString(arrayToBeSorted));
     }
 }

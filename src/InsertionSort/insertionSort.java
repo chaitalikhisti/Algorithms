@@ -5,9 +5,16 @@ import java.util.Scanner;
 
 public class insertionSort
 {
-    public static int[] insertionSort(int[] arr)
+    private static void insertionSorting(int[] arr)
     {
         int n = arr.length;
+        if (n < 2)
+        {
+            if (arr[0] > arr[1])
+            {
+                swap(arr, arr[0], arr[1]);
+            }
+        }
         for(int i = 1; i < n; i++)
         {
             int key = arr[i];
@@ -19,12 +26,11 @@ public class insertionSort
                 j--;
             }
             arr[j+1] = key;
-            System.out.println("i: " +i+ " " +Arrays.toString(arr));
+            //System.out.println("i: " +i+ " " +Arrays.toString(arr));
         }
-        return arr;
     }
 
-    public static void swap(int[] givenArray, int bigNo, int smallNo)
+    private static void swap(int[] givenArray, int bigNo, int smallNo)
     {
         int temp = givenArray[smallNo];
         givenArray[smallNo] = givenArray[bigNo];
@@ -40,7 +46,8 @@ public class insertionSort
         {
             arrayToBeSorted[i] = sc.nextInt();
         }
-        insertionSort(arrayToBeSorted);
+        System.out.println("Unsorted Array: " +Arrays.toString(arrayToBeSorted));
+        insertionSorting(arrayToBeSorted);
         System.out.println(Arrays.toString(arrayToBeSorted));
     }
 }

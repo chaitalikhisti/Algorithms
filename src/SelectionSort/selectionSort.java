@@ -5,27 +5,36 @@ import java.util.Scanner;
 
 public class selectionSort
 {
-    public static void selectionSort(int[] arr)
+    private static void selectionSorting(int[] arr)
     {
         int n = arr.length;
-        for (int i = 0; i < n; i++)
+        if (n < 2)
+        {
+            if (arr[0] > arr[1])
+            {
+                swap(arr, arr[0], arr[1]);
+            }
+        }
+        for (int i = 0; i < n - 1; i++)
         {
             int minValue = arr[i];
-            for (int j = n - i; j < n; j++)
+            int minIndex = i;
+            for (int j = i + 1; j < n; j++)
             {
                 if (arr[j] < minValue)
                 {
                     minValue = arr[j];
+                    minIndex = j;
                 }
             }
-            if (arr[i] != minValue)
+            if (arr[i] > minValue)
             {
-                swap(arr, i, minValue);
+                swap(arr, minIndex, i);
             }
         }
     }
 
-    public static void swap(int[] givenArray, int bigNo, int smallNo)
+    private static void swap(int[] givenArray, int bigNo, int smallNo)
     {
         int temp = givenArray[smallNo];
         givenArray[smallNo] = givenArray[bigNo];
@@ -41,7 +50,8 @@ public class selectionSort
         {
             arrayToBeSorted[i] = sc.nextInt();
         }
-        selectionSort(arrayToBeSorted);
-        System.out.println(Arrays.toString(arrayToBeSorted));
+        System.out.println("Unsorted Array: " +Arrays.toString(arrayToBeSorted));
+        selectionSorting(arrayToBeSorted);
+        System.out.println("Sorted Array: " +Arrays.toString(arrayToBeSorted));
     }
 }
