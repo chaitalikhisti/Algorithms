@@ -36,6 +36,7 @@ public class bubbleSort
 
     public static void main(String[] args)
     {
+        System.out.println("Bubble Sort Algorithm");
         Scanner sc = new Scanner(System.in);
         int arrayLength = sc.nextInt();
         int[] arrayToBeSorted = new int[arrayLength];
