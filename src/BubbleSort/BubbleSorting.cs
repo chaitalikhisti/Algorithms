@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace BubbleSortingAlgorithm
 {
-    class Program
+    class BubbleSorting
     {
         static void BubbleSort(int[] array)
         {
-            int n = array.Length;
-            for (int i = 0; i < n - 1; i++)
+            int n = array.Length - 1;
+            for (int i = 0; i < n; i++)
             {
-                for (int j = 0; j < (n - 1) - i; j++)
+                for (int j = 0; j < n - i; j++)
                 {
                     if (array[j] > array[j + 1])
                     {
